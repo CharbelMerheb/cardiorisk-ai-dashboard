@@ -1,31 +1,31 @@
 # CardioRisk AI
 
-CardioRisk AI is a machine-learning project that studies cardiovascular risk prediction using multiple datasets, preprocessing pipelines, classical ML models, and neural-network classifiers.
+CardioRisk AI is an end-to-end machine-learning dashboard for cardiovascular risk prediction. The project combines data preprocessing, feature engineering, classical machine-learning models, neural-network classifiers, model evaluation, and Streamlit deployment into one reproducible workflow.
 
-The goal of the project is not to present a medical product. The goal is to demonstrate an end-to-end data science workflow: cleaning raw health datasets, preparing model-ready features, training different model families, comparing their outputs, and deploying the result in an interactive Streamlit dashboard.
-
-## What This Project Demonstrates
-
-- Data cleaning and preprocessing for tabular healthcare datasets
-- Handling missing values, categorical variables, scaling, and engineered features
-- Building classical machine-learning models for classification tasks
-- Building neural-network style models for comparison
-- Comparing model families across multiple cardiovascular prediction targets
-- Turning notebook experiments into a reproducible local VS Code project
-- Packaging a machine-learning workflow into a clean Streamlit interface
-- Preparing a project for GitHub portfolio presentation
-
-## Prediction Tasks
-
-The dashboard compares models across three related classification problems:
+The dashboard compares model outputs across three cardiovascular prediction tasks:
 
 - 10-year coronary heart disease risk
 - Heart disease classification
 - Stroke risk classification
 
-## Model Comparison
+## Features
 
-The training script evaluates both model families with ROC-AUC on held-out validation splits.
+- Interactive Streamlit dashboard for model inference
+- Side-by-side comparison between classical ML and neural-network classifiers
+- Preprocessed tabular healthcare datasets
+- Reproducible model training script
+- Model-ready feature inspection inside the app
+- Lightweight saved model artifacts for immediate local execution
+
+## Technical Workflow
+
+1. Raw healthcare datasets are cleaned and transformed in preprocessing notebooks.
+2. Missing values, categorical variables, scaling, and engineered features are handled for model training.
+3. Classical ML and neural-network classifiers are trained on processed datasets.
+4. Models are evaluated using ROC-AUC on held-out validation splits.
+5. Trained artifacts are loaded by a Streamlit dashboard for interactive prediction.
+
+## Model Performance
 
 | Task | Classical ML AUC | Neural Network AUC |
 | --- | ---: | ---: |
@@ -33,13 +33,24 @@ The training script evaluates both model families with ROC-AUC on held-out valid
 | Heart disease | 0.928 | 0.899 |
 | Stroke | 0.811 | 0.584 |
 
-These results are useful for discussing the tradeoffs between classical ML and neural-network approaches on structured tabular data. In this project, the classical models perform strongly, which is a realistic and valuable finding for small-to-medium tabular datasets.
+The comparison highlights an important pattern in structured tabular data: classical machine-learning models can perform competitively, and sometimes better, than neural-network approaches on smaller datasets.
+
+## Tech Stack
+
+- Python
+- pandas
+- NumPy
+- scikit-learn
+- Streamlit
+- joblib
+- Jupyter notebooks
 
 ## Project Structure
 
 ```text
 cardio_risk_project/
 |-- app.py                         # Streamlit dashboard and prediction flow
+|-- requirements.txt               # Python dependencies
 |-- scripts/
 |   `-- train_models.py             # Rebuilds model artifacts from processed data
 |-- data/
@@ -50,10 +61,9 @@ cardio_risk_project/
 |   |-- ml/                         # Classical ML notebooks
 |   |-- dl/                         # Deep-learning notebooks
 |   `-- artifacts/                  # Lightweight trained .joblib models
-`-- requirements.txt
 ```
 
-## Run Locally
+## Installation
 
 Create and activate a virtual environment:
 
@@ -68,61 +78,32 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Run the dashboard:
+## Usage
+
+Run the Streamlit dashboard:
 
 ```powershell
 streamlit run app.py
 ```
 
-Streamlit will print a local URL, usually:
+The app will open in the browser at a local Streamlit URL, usually:
 
 ```text
 http://localhost:8501
 ```
 
-`localhost` means the app is running only on your own computer. It is perfect for development and screenshots, but hiring teams cannot open that link from their devices.
+## Rebuilding Models
 
-The repository includes lightweight trained artifacts in `models/artifacts/`, so the dashboard can run immediately after dependency installation.
-
-## Deploy For Hiring Teams
-
-For a Streamlit portfolio project, the best option is usually Streamlit Community Cloud because it deploys directly from GitHub and gives you a public `.streamlit.app` link.
-
-Recommended deployment path:
-
-1. Push this project to a public GitHub repository.
-2. Go to Streamlit Community Cloud: https://streamlit.io/cloud
-3. Sign in with GitHub.
-4. Choose the repository, branch, and `app.py` as the main file.
-5. Deploy the app.
-6. Add the public app link to your GitHub README, CV, and LinkedIn post.
-
-Good public links look like:
-
-```text
-https://your-project-name.streamlit.app
-```
-
-Do not use `localhost` on your CV or LinkedIn. Use `localhost` only while developing locally.
-
-Alternative deployment options:
-
-- Hugging Face Spaces: good for ML portfolios and public demos.
-- Render: good if you want more backend control.
-- GitHub Pages: not suitable for this app because Streamlit runs Python on a server.
-
-## Rebuild The Models
-
-To regenerate the model artifacts from the processed datasets:
+The repository includes lightweight trained artifacts in `models/artifacts/`. To regenerate them from the processed datasets:
 
 ```powershell
 python scripts/train_models.py
 ```
 
-The script trains:
+The training script creates:
 
 - Classical ML pipelines for coronary heart disease and stroke
-- A random forest model for heart disease
+- A random forest classifier for heart disease
 - MLP neural-network classifiers for model-family comparison
 
 ## Disclaimer
