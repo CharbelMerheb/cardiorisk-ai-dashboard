@@ -13,7 +13,7 @@ The goal of the project is not to present a medical product. The goal is to demo
 - Comparing model families across multiple cardiovascular prediction targets
 - Turning notebook experiments into a reproducible local VS Code project
 - Packaging a machine-learning workflow into a clean Streamlit interface
-- Preparing a project for GitHub, CV, and LinkedIn portfolio presentation
+- Preparing a project for GitHub portfolio presentation
 
 ## Prediction Tasks
 
@@ -50,8 +50,7 @@ cardio_risk_project/
 |   |-- ml/                         # Classical ML notebooks
 |   |-- dl/                         # Deep-learning notebooks
 |   `-- artifacts/                  # Lightweight trained .joblib models
-|-- requirements.txt
-`-- README.md
+`-- requirements.txt
 ```
 
 ## Run Locally
@@ -125,14 +124,6 @@ The script trains:
 - Classical ML pipelines for coronary heart disease and stroke
 - A random forest model for heart disease
 - MLP neural-network classifiers for model-family comparison
-
-## Suggested CV Bullet
-
-Built an end-to-end cardiovascular risk prediction project using Python, pandas, scikit-learn, and Streamlit; performed preprocessing and feature engineering on multiple health datasets, trained and compared classical ML and neural-network classifiers, evaluated model performance with ROC-AUC, and deployed the workflow as an interactive dashboard.
-
-## Suggested LinkedIn Caption
-
-I converted a Colab-based machine-learning workflow into a complete VS Code and GitHub-ready dashboard. The project focuses on data preprocessing, feature engineering, classical ML vs neural-network comparison, model evaluation, and Streamlit deployment for cardiovascular risk prediction.
 
 ## Disclaimer
 
