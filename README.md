@@ -8,6 +8,10 @@ The dashboard compares model outputs across three cardiovascular prediction task
 - Heart disease classification
 - Stroke risk classification
 
+## Live Demo
+
+Access the deployed dashboard here: https://cardiorisk-ai-dashboard.streamlit.app/
+
 ## Features
 
 - Interactive Streamlit dashboard for model inference
