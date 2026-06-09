@@ -1,0 +1,11 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/secrets.toml
+*.log
+.DS_Store
+Thumbs.db
+
+# Keep notebooks, scripts, lightweight CSV data, and generated model artifacts visible for portfolio review.
